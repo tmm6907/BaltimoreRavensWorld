@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="stylesheet" type="text/css" href="{% static 'styles/style.css' %}">
+
+        <title>Baltimore Ravens World!</title>
+    </head>
+    <body>
+        <div id="header">
+            <div class="title-wrapper"><p id="title-1">Raven's </p><p id="title-2">World</p></div>
+            <ul class="nav">
+                <li><a href={% url 'home' %}>Home</a></li>
+                <li><a href="">Creators</a></li>
+                <li><a href="">Stats</a></li>
+                <li><a href="">Contact</a></li>
+            </ul>
+        </div>
+        {% block content %}
+         replace me
+        {% endblock %}
+        <script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+        <!-- Load our React components. -->
+        
+        <script type="text/babel" src={% static 'js/LatestContent.js'%}></script>
+        <script type="text/babel">
+            ReactDOM.render(<LatestContent/>, document.querySelector("#react-latest-content-container"));
+        </script>
+        
+    </body>
+</html>
